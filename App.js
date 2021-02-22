@@ -1,9 +1,21 @@
-import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import WelcomeScreen from './screens/WelcomeScreen'
+import React from 'react';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import ExchangeScreen from '../screens/ExchangeScreen'
+import HomeScreen from '../screens/HomeScreen';
 
-export default function App() {
-  return (
-    <WelcomeScreen/>
-  );
-}
+
+
+export const AppTabNavigator = createBottomTabNavigator({
+  Home : {
+    screen: HomeScreen,
+    navigationOptions :{
+      tabBarLabel : "Home",
+    }
+  },
+  Exchange: {
+    screen: ExchangeScreen,
+    navigationOptions :{
+      tabBarLabel : "Exchange",
+    }
+  }
+});
