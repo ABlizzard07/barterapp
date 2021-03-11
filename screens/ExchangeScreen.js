@@ -8,8 +8,16 @@ export default class ExchangeScreen extends Component{
       super();
       this.state={
         itemName: '',
-        description: ''
+        description: '',
+        exchangeId: ''
       }
+    }
+
+    createUniqueId(){
+      var unique = Math.random().toString(12).substring(4);
+      this.setState({
+        exchangeId: unique
+      })
     }
 
     addItem =(item, info)=>{
@@ -22,7 +30,8 @@ export default class ExchangeScreen extends Component{
     
         this.setState({
             itemName : '',
-            description : ''
+            description : '',
+            exchangeId: ''
         })
     
         alert("Item Requested Successfully")

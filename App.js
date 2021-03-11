@@ -5,6 +5,8 @@ import HomeScreen from '../screens/HomeScreen';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import Sidebar from './assets/Sidebar'
 import SettingsScreen from './assets/SettingsScreen'
+import Barters from './screens/MyBarters'
+import ReceiverDetails from './screens/ReceiverDetails'
 
 export const AppTabNavigator = createBottomTabNavigator({
   Home : {
@@ -27,6 +29,9 @@ const AppDrawNavigator = createDrawerNavigator({
    },
    Settings: {
      screen: SettingsScreen
+   },
+   MyBarters: {
+     screen: Barters
    }
   },
   {
@@ -35,3 +40,16 @@ const AppDrawNavigator = createDrawerNavigator({
   {
     initialRouteName: 'Home'
   })
+
+  const AppStackNavigator = createStackNavigator({
+    ExchangeList : {
+      screen : ExchangeScreen
+    },
+    ReceiverDetails : {
+      screen : ReceiverDetails
+    }
+  },
+    {
+      initialRouteName: 'ExchangeList'
+    }
+  );
