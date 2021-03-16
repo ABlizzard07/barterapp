@@ -7,6 +7,7 @@ import Sidebar from './assets/Sidebar'
 import SettingsScreen from './assets/SettingsScreen'
 import Barters from './screens/MyBarters'
 import ReceiverDetails from './screens/ReceiverDetails'
+import NotificationScreen from './screens/Notifications'
 
 export const AppTabNavigator = createBottomTabNavigator({
   Home : {
@@ -32,6 +33,9 @@ const AppDrawNavigator = createDrawerNavigator({
    },
    MyBarters: {
      screen: Barters
+   },
+   Mail: {
+     screen: NotificationScreen
    }
   },
   {

@@ -32,7 +32,7 @@ export default class Barters extends Component {
 
    getBarters =()=>{
      alert("Getting all donations")
-     this.requestRef = db.collection("all_donations").where("donor_id" ,'==', this.state.donorId)
+     this.requestRef = db.collection("all_barters").where("donor_id" ,'==', this.state.donorId)
      .onSnapshot((snapshot)=>{
        var allDonations = []
        snapshot.docs.map((doc) =>{
@@ -46,25 +46,50 @@ export default class Barters extends Component {
      })
    }
 
-   sendBook=(bookDetails)=>{
+   sendItem=(itemDetails)=>{
      alert("Checking for status")
      var requestStatus
-     if(bookDetails.request_status === "Book Sent"){
+     if(itemDetails.request_status === "Book Sent"){
        requestStatus = "Donor Interested"
        alert("Donor interested")
-       db.collection("all_donations").doc(bookDetails.doc_id).update({
+       db.collection("all_barters").doc(itemDetails.doc_id).update({
          "request_status" : "Donor Interested"
        })
-       this.sendNotification(bookDetails,requestStatus)
+       this.sendNotification(itemDetails,requestStatus)
      }
      else{
-       alert("Book sent")
-       requestStatus = "Book Sent"
-       db.collection("all_donations").doc(bookDetails.doc_id).update({
-         "request_status" : "Book Sent"
+       alert("Item sent")
+       requestStatus = "Item Sent"
+       db.collection("all_barters").doc(itemDetails.doc_id).update({
+         "request_status" : "Item Sent"
        })
      }
    }
+
+   sendNotification=(itemDetails,requestStatus)=>{
+    alert("Sending notifications!")
+    var requestId = itemDetails.request_id
+    var donorId = itemDetails.donor_id
+    db.collection("all_notifications")
+    .where("request_id","==", requestId)
+    .where("donor_id","==",donorId)
+    .get()
+    .then((snapshot)=>{
+      snapshot.forEach((doc) => {
+        var message = ""
+        if(requestStatus === "Item Sent"){
+          message = this.state.donorName + " has exchanged their item"
+        }else{
+           message =  this.state.donorName  + " has shown interest in bartering."
+        }
+        db.collection("all_notifications").doc(doc.id).update({
+          "message": message,
+          "notification_status" : "unread",
+          "date"                : firebase.firestore.FieldValue.serverTimestamp()
+        })
+      });
+    })
+  }
 
    keyExtractor = (item, index) => index.toString()
 
