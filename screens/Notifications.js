@@ -41,6 +41,7 @@ export default class NotificationScreen extends Component{
   render(){
     return(
       <View style={styles.container}>
+        <MyHeader navigation={this.props.navigation} title="Notifications"/>
         <View style={{flex:0.9}}>
           {
             this.state.allNotifications.length === 0

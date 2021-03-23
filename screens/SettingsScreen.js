@@ -29,6 +29,7 @@ export default class SettingsScreen extends Component {
   render(){
     return (
       <View>
+        <MyHeader navigation={this.props.navigation} title="Settings"/>
       <KeyboardAvoidingView>
       <MyHeader title = 'Settings' ></MyHeader>
 

@@ -130,6 +130,7 @@ export default class Barters extends Component {
    render(){
      return(
        <View style={{flex:1}}>
+         <MyHeader navigation={this.props.navigation} title="My Barters"/>
          <View style={{flex:1}}>
            {
              this.state.allDonations.length === 0

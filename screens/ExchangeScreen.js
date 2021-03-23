@@ -42,6 +42,7 @@ export default class ExchangeScreen extends Component{
     render(){
         return (
           <View>
+            <MyHeader navigation={this.props.navigation} title="Exchange"/>
             <TextInput
             style={styles.formInput}
             placeholder="Item Name"
