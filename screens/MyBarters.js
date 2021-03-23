@@ -4,6 +4,7 @@ import {Card,Icon,ListItem} from 'react-native-elements'
 import MyHeader from '../components/MyHeader.js'
 import firebase from 'firebase';
 import db from '../config.js'
+import MyHeader from '../assets/MyHeader'
 
 export default class Barters extends Component {
    constructor(){

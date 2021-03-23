@@ -3,6 +3,7 @@ import {Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity, StyleShee
 import MyHeader from '../components/MyHeader'
 import db from '../config'
 import firebase from 'firebase'
+import MyHeader from '../assets/MyHeader'
 
 export default class SettingsScreen extends Component {
   constructor(){

@@ -2,6 +2,7 @@ import React,{Component}from 'react';
 import {View, Text, TextInput, StyleSheet, TouchableOpacity,} from 'react-native';
 import db from '../config';
 import firebase from 'firebase';
+import MyHeader from '../assets/MyHeader'
 
 export default class ExchangeScreen extends Component{
     constructor(){

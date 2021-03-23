@@ -3,6 +3,7 @@ import { StyleSheet, View, FlatList,Text } from 'react-native';
 import { ListItem, Icon } from 'react-native-elements';
 import firebase from 'firebase';
 import db from '../config';
+import MyHeader from '../assets/MyHeader'
 
 export default class NotificationScreen extends Component{
   constructor(props) {
