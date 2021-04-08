@@ -17,6 +17,7 @@ export default class ExchangeScreen extends Component{
         exchangeId:"",
         userDocId: '',
         docId :'',
+        currencyCode: ''
       }
     }
 
@@ -75,6 +76,18 @@ export default class ExchangeScreen extends Component{
             }
           })
       })}
+
+      getData (){
+        fetch("https://data.fixer.io")
+        .then(response => {
+           return response.json();
+        }).then(responseData => {
+          var currencyCode = this.state.currencyCode;
+          var currency = responseData.rates.INR
+          var value = 69/currency
+          console.log(value);
+        })
+      }
 
       render(){
 

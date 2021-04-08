@@ -24,6 +24,7 @@ export default class WelcomeScreen extends Component{
       lastName:'',
       address:'',
       contact:'',
+      currencyCode: '',
       confirmPassword:'',
       isModalVisible:'false'
     }
@@ -149,6 +150,15 @@ showModal = ()=>{
               confirmPassword: text
             })
           }}
+        /><TextInput
+        style={styles.formInput}
+        placeholder ={"Currency Code"}
+        maxLength ={12}
+        onChangeText={(text)=>{
+          this.setState({
+            currencyCode: text
+          })
+        }}
         />
         <View>
           <TouchableOpacity
